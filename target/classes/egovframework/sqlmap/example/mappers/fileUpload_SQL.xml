@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="egovframework.example.upload.service.impl.UploadMapper">
+
+
+	<select id="selectUploadServiceList" resultType="egovMap">
+		SELECT *
+		FROM desk_log
+	</select>
+	
+	<insert id="deskUploadLog" parameterType="egovframework.example.upload.service.UploadFileVO">
+		
+		INSERT INTO DESK_LOG (UPLOADER_ID, UPLOADER_PASS, MESSAGE, FILE_NAME, DATE, PATH)
+		VALUES ('${id}', '${password}', '${message}', '${fileName}', '${date}', '${path}')
+	
+	</insert>
+	
+	<insert id="bookUploadLog" parameterType="egovframework.example.upload.service.UploadFileVO">
+		
+		INSERT INTO book_log (UPLOADER_ID, UPLOADER_PASS, MESSAGE, FILE_NAME, DATE, PATH)
+		VALUES ('${id}', '${password}', '${message}', '${fileName}', '${date}', '${path}')
+	
+	</insert>
+	
+	<insert id="sightUploadLog" parameterType="egovframework.example.upload.service.UploadFileVO">
+		
+		INSERT INTO sight_log (UPLOADER_ID, UPLOADER_PASS, MESSAGE, FILE_NAME, DATE, PATH)
+		VALUES ('${id}', '${password}', '${message}', '${fileName}', '${date}', '${path}')
+	
+	</insert>
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="egovframework.example.sign.service.impl.SignMapper">
+
+	<insert id="register" parameterType="egovframework.example.sign.service.SignUpVO">
+	    INSERT INTO MP_MEMBER(   user_id, user_pass, user_name, reg_date)
+	                  VALUES('${userId}','${userPass}','${userName}','${regDate}')
+    </insert>
+	
+	<select id="selectSignServiceList" parameterType="String" resultType="egovMap">
+		select user_id, user_pass,user_name
+		from mp_member 
+		<where>
+			user_id = #{_parameter};
+		</where>
+
+	</select>
+	
+</mapper>
+
+
